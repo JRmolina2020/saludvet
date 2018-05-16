@@ -29,6 +29,8 @@ $idcliente=$_GET["client"];
                 <th>Mascota</th>
                 <th>Sexo</th>
                 <th>Raza</th>
+                 <th>Procedencia</th>
+                  <th>Edad</th>
                   <th>Categoria</th>
                 <th>Descripcion</th>
                 <th>Perfil</th>
@@ -72,8 +74,8 @@ $idcliente=$_GET["client"];
                   <div class="form-group">
                   <label>Sexo:</label>
                  <select name="sexo" id="sexo" class="form-control" required="required">
-                   <option value="MACHO">MACHO</option>
-                   <option value="HEMBRA">HEMBRA</option>
+                   <option value="MACHO">Macho</option>
+                   <option value="HEMBRA">Hembra</option>
                  </select>
                 </div>
                </div>
@@ -93,6 +95,25 @@ $idcliente=$_GET["client"];
                 <div class="form-group">
                   <label>Raza:</label>
                   <select name="raza" id="raza" class="form-control" >   
+                  </select>
+                </div>
+               </div>
+             </div>
+             <div class="row">
+                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <div class="form-group">
+                  <label>Procedencia:</label>
+                 <select name="procedencia" id="procedencia" class="form-control" required="required">
+                   <option value="URBANA">Urbana</option>
+                   <option value="RURAL">Rural</option>
+                    
+                 </select>
+                </div>
+               </div>
+               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Edad:</label>
+                 <input type="number" name="edad" id="edad" class="form-control"  required="required">
                   </select>
                 </div>
                </div>

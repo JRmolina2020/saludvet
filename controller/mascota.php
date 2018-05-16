@@ -9,6 +9,8 @@ $idmascota=isset($_POST["idmascota"])? limpiarCadena($_POST["idmascota"]):"";
 $nombre=isset($_POST["nombre"])? limpiarCadena($_POST["nombre"]):"";
 $sexo=isset($_POST["sexo"])? limpiarCadena($_POST["sexo"]):"";
 $raza=isset($_POST["raza"])? limpiarCadena($_POST["raza"]):"";
+$procedencia=isset($_POST["procedencia"])? limpiarCadena($_POST["procedencia"]):"";
+$edad=isset($_POST["edad"])? limpiarCadena($_POST["edad"]):"";
 $categoria=isset($_POST["categoria"])? limpiarCadena($_POST["categoria"]):"";
 $descripcion=isset($_POST["descripcion"])? limpiarCadena($_POST["descripcion"]):"";
 $imagen=isset($_POST["imagen"])? limpiarCadena($_POST["imagen"]):"";
@@ -32,11 +34,11 @@ if (!file_exists($_FILES['imagen']['tmp_name']) || !is_uploaded_file($_FILES['im
 		}
 	
 		if (empty($idmascota)){
-			$rspta=$mascota->insertar($nombre,$sexo,$raza,$categoria,$descripcion,$imagen,$cliente_idcliente);
+			$rspta=$mascota->insertar($nombre,$sexo,$raza,$procedencia,$edad,$categoria,$descripcion,$imagen,$cliente_idcliente);
 			echo $rspta ? "Mascota registrado" : "Mascota no se pudo registrar";
 		}
 		else {
-			$rspta=$mascota->editar($idmascota,$nombre,$sexo,$raza,$categoria,$descripcion,$imagen,$cliente_idcliente);
+			$rspta=$mascota->editar($idmascota,$nombre,$sexo,$raza,$procedencia,$edad,$categoria,$descripcion,$imagen,$cliente_idcliente);
 			echo $rspta ? " mascota actualizado" : "mascota no se pudo actualizar";
 		}
 	break;
@@ -73,9 +75,11 @@ if (!file_exists($_FILES['imagen']['tmp_name']) || !is_uploaded_file($_FILES['im
  				"1"=>$reg->Mascota,
  				"2"=>$reg->sexo,
  				"3"=>$reg->raza,
- 				"4"=>$reg->categoria,
- 				"5"=>$reg->descripcion,
- 			    "6"=>"<img src='../files/mascota/".$reg->imagen."' height='50px' width='50px' >"
+ 				"4"=>$reg->procedencia,
+ 				"5"=>$reg->edad,
+ 				"6"=>$reg->categoria,
+ 				"7"=>$reg->descripcion,
+ 			    "8"=>"<img src='../files/mascota/".$reg->imagen."' height='50px' width='50px' >"
  				);
  		}
  		$results = array(

@@ -20,8 +20,10 @@ $("#imagenmuestramascota").hide();
 function limpiarmascota()
 {
 	$("#nombre").val("");
-	$("#Sexo").val("");
+	$("#sexo").val("");
 	$("#raza").val("");
+	$("#procedencia").val("");
+	$("#edad").val("");
 	$("#categoria").val("");
 	$("#descripcion").val("");
 	$("#nivel").val("");
@@ -34,7 +36,6 @@ function limpiarmascota()
 	$('#formulariomascota').find('[name="nombre"]').focus();});
 
 }
-
 
 //Función listarmascota
 function listarmascota(idcliente)
@@ -82,7 +83,6 @@ $('#formulariomascota') .bootstrapValidator({
 },
 	fields: {
 	
-
 		nombre: {
 			message: 'Nombre de la mascota invalido',
 			validators: {
@@ -111,6 +111,24 @@ $('#formulariomascota') .bootstrapValidator({
 			validators: {
 				notEmpty: {
 					message: 'La categoria de la mascota es obligatoria, no puede estar vacia.'
+				},
+				
+			}
+		},
+		edad: {
+			message: 'La Edad de la mascota es invalida',
+			validators: {
+				notEmpty: {
+					message: 'La edad de la mascota es obligatoria, no puede estar vacia.'
+				},
+				
+			}
+		},
+		raza: {
+			message: 'La Raza de la mascota es invalida',
+			validators: {
+				notEmpty: {
+					message: 'La Raza de la mascota es obligatoria, no puede estar vacia.'
 				},
 				
 			}
@@ -167,6 +185,8 @@ function mostrarmascota(idmascota)
 		$("#nombre").val(data.nombre);
 		  $("#categoria").val(data.categoria).change();
 		   $("#raza").val(data.raza).change();
+		    $("#procedencia").val(data.procedencia).change();
+		    $("#edad").val(data.edad);
 		 $("#sexo").val(data.sexo).change();
 		$("#descripcion").val(data.descripcion);
 		// -------------------------------------
@@ -237,8 +257,6 @@ var select = document.getElementById("raza"); //Seleccionamos el select
     }
 
 }
-
-
 
 
 initmascota();
