@@ -68,7 +68,7 @@ if (!file_exists($_FILES['imagen']['tmp_name']) || !is_uploaded_file($_FILES['im
  				"0"=>'<button class="btn btn-warning btn-xs" onclick="mostrarmascota('.$reg->idmascota.')"><i class="fa fa-pencil"></i></button>'.
                     ' <button class="btn btn-danger btn-xs " onclick="eliminarmascota('.$reg->idmascota.')"><i class="fa fa-trash"></i></button>'.
                     '<a class="btn btn-success btn-xs" role="button" 
-                    href="../view/listado.php?client='.$reg->idcliente.'&mascot='.$reg->idmascota.'">
+                    href="../view/examen.php?client='.$reg->idcliente.'&mascot='.$reg->idmascota.'">
                      <i class="fa fa-align-justify"></i></a>'
                     ,
  				
