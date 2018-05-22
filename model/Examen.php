@@ -49,7 +49,7 @@ Class Examen
 //PDF DE HISTORIA
 	public function listarhistoria($idexamen)
 	{
-		$sql="SELECT cedula,cliente.nombre,apellido,telefono,ciudad,barrio,mascota.imagen,mascota.nombre as mascotax,categoria,sexo,raza,edad, procedencia,descripcion,imagen,frespiratoria,fcardiaca,hidratacion,peso,pulso,temperatura,actitud,ccorporal,fecha from cliente INNER JOIN mascota ON mascota.cliente_idcliente = cliente.idcliente INNER JOIN examen ON examen.idmascota = mascota.idmascota
+		$sql="SELECT cedula,cliente.nombre,apellido,telefono,ciudad,barrio,direccion,mascota.nombre as mascotax,categoria,sexo,raza,edad, procedencia,descripcion,imagen,frespiratoria,fcardiaca,hidratacion,peso,pulso,temperatura,actitud,ccorporal,fecha from cliente INNER JOIN mascota ON mascota.cliente_idcliente = cliente.idcliente INNER JOIN examen ON examen.idmascota = mascota.idmascota
 		    where examen.idexamen='$idexamen'";
 		   return ejecutarConsulta($sql);		
 	}

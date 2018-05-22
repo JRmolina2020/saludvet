@@ -1,6 +1,10 @@
 <?php
 require 'header.php';
-$idcliente=$_GET["client"];
+if (!empty($_GET['client'])) {
+       $idcliente=$_GET["client"];
+    }else{
+    }
+
 ?>
 <!--Contenido-->
 <!-- Content Wrapper. Contains page content -->

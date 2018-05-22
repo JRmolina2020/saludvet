@@ -56,7 +56,7 @@
         $_SESSION["nivel"] = $nivel;
         $_SESSION["bloqueo"] = $bloqueo;
          $_SESSION["imagen"] = $imagen;
-        header('location:../view/usuario.php');
+        header('location:../view/home.php');
   }
   
   else  {

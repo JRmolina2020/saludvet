@@ -5,9 +5,10 @@ require('htmlpdf.php');
 
 $idexamen=$_GET["examen"];
 
+
 $pdf=new PDF();
 $pdf->AddPage();
-$pdf->SetFont('Arial','',12);
+
 
 
 require_once "../model/Examen.php";
@@ -22,56 +23,93 @@ $examen = new Examen();
 $rspta = $examen->listarhistoria($idexamen);
 
 
-$pdf->Cell(40,6,'',0,0,'C');
-$pdf->Cell(115,6,'LISTADO DE CIENTES',0,0,'C'); 
-$pdf->Image('logo.png',100,20,-300);
-$pdf->Ln(35);
-// colores filas
+ $pdf->Image('logo.png',10,8,33);
 $pdf->ln(10);
-$pdf->SetFillColor(199, 55, 24); 
-$pdf->SetFont('Arial','B',9);
-// 
-$pdf->Cell(1,6,'',0,0,'L');
-$pdf->Cell(100,6,'INFORMACION PERSONAL ',0,0,'L'); 
-$pdf->ln(10);
+$pdf->SetFont('Arial','B',8);
+$pdf->Text(100,33,'hola');
+
+ 
 
 
 
 while($reg= $rspta->fetch_object())
 { 
-
 $html='
+<center>
+<br><br><br>
 <table>
 <tr>
-<td  width="145"  bgcolor="#CE3A1A" height="60">Cedula</td>
-<td  width="145" bgcolor="#CE3A1A" height="60">Nombre</td>
-<td  width="145" bgcolor="#CE3A1A" height="60">Apellido</td>
-<td  width="145" bgcolor="#CE3A1A" height="60">Telefono</td>
+<td  width="130" bgcolor="#C62C2C" height="60">Cedula</td>
+<td  width="100" bgcolor="#787A81" height="60">Nombre</td>
+<td  width="100" bgcolor="#DFE4E6" height="60">Apellido</td>
+<td  width="100" bgcolor="#DFE4E6" height="60">Telefono</td>
+<td  width="100"  bgcolor="#DFE4E6" height="60">Ciudad</td>
+<td  width="100" bgcolor="#DFE4E6" height="60">Barrio</td>
+<td  width="100" bgcolor="#DFE4E6" height="60">Dirrecion</td>
 </tr>
+<br>
 <tr>
-<td width="145"  bgcolor="#B0D5DE"  height="30">'.$reg->cedula.'</td>
-<td width="145"   bgcolor="#B0D5DE" height="30">'.$reg->mascotax.'</td>
-<td width="145"   bgcolor="#B0D5DE" height="30">'.$reg->apellido.'</td>
-<td width="145"   bgcolor="#B0D5DE" height="30">'.$reg->telefono.'</td>
+<td width="130"  bgcolor="#DFE4E6  "  height="90">'.$reg->cedula.'</td>
+<td width="100"   bgcolor="#DFE4E6  " height="90">'.$reg->nombre.'</td>
+<td width="100"   bgcolor="#DFE4E6  " height="90">'.$reg->apellido.'</td>
+<td width="100"   bgcolor="#DFE4E6  " height="90">'.$reg->telefono.'</td>
+<td width="100"   bgcolor="#DFE4E6  "  height="90">'.$reg->ciudad.'</td>
+<td width="100"   bgcolor="#DFE4E6  " height="90">'.$reg->barrio.'</td>
+<td width="100"   bgcolor="#DFE4E6  " height="90">'.$reg->direccion.'</td>
 </tr>
 </table>
-<br><br><br><br>
-<h1>INFORMACION RESIDENCIAL</h1>
-<br><br>
+<br><br>';
+// $pdf->Image('../files/mascota/'.$reg->imagen.'',100,30,-200);
+$html.='
+<br>
 <table>
 <tr>
-<td  width="145"  bgcolor="#CE3A1A" height="60">Ciudad</td>
-<td  width="145" bgcolor="#CE3A1A" height="60">Barrio</td>
-<td  width="145" bgcolor="#CE3A1A" height="60">Dirrecion</td>
+<td  width="130"  bgcolor="#C62C2C" height="60">Nombre</td>
+<td  width="100" bgcolor="#787A81" height="60">Especie</td>
+<td  width="100" bgcolor="#DFE4E6" height="60">Sexo</td>
+<td  width="100" bgcolor="#DFE4E6" height="60">Raza</td>
+<td  width="100"  bgcolor="#DFE4E6" height="60">Edad</td>
+<td  width="100" bgcolor="#DFE4E6" height="60">Procedencia</td>
+<td  width="100" bgcolor="#DFE4E6" height="60">Descripcion</td>
 </tr>
+<br>
 <tr>
-<td width="145"   bgcolor="#B0D5DE"  height="30">'.$reg->ciudad.'</td>
-<td width="145"   bgcolor="#B0D5DE" height="30">'.$reg->barrio.'</td>
-<td width="145"   bgcolor="#B0D5DE" height="30">';$pdf->Image('../files/mascota/'.$reg->imagen.'');
+<td width="130"   bgcolor="#DFE4E6  "  height="90">'.$reg->mascotax.'</td>
+<td width="100"   bgcolor="#DFE4E6  " height="90">'.$reg->categoria.'</td>
+<td width="100"   bgcolor="#DFE4E6  " height="90">'.$reg->sexo.'</td>
+<td width="100"   bgcolor="#DFE4E6  "  height="90">'.$reg->raza.'</td>
+<td width="100"   bgcolor="#DFE4E6  " height="90">'.$reg->edad.'</td>
+<td width="100"   bgcolor="#DFE4E6  " height="90">'.$reg->procedencia.'</td>
+<td width="100"   bgcolor="#DFE4E6  " height="90">'.$reg->descripcion.'</td>';
 $html.='
 </td>
 </tr>
 </table>
+<br><br>
+<table>
+<tr>
+<td  width="130"  bgcolor="#C62C2C" height="60">F.Respiratoria</td>
+<td  width="100" bgcolor="#787A81" height="60">F.cardiaca</td>
+<td  width="100" bgcolor="#DFE4E6" height="60">Hidratacion</td>
+<td  width="60" bgcolor="#DFE4E6" height="60">Peso</td>
+<td  width="80"  bgcolor="#DFE4E6" height="60">Pulso</td>
+<td  width="100" bgcolor="#DFE4E6" height="60">Temperatura</td>
+<td  width="60" bgcolor="#DFE4E6" height="60">Actitud</td>
+<td  width="100" bgcolor="#DFE4E6" height="60">C.Corporal</td>
+</tr>
+<tr>
+<br>
+<td width="130"   bgcolor="#DFE4E6  "  height="90">'.$reg->frespiratoria.'</td>
+<td width="100"   bgcolor="#DFE4E6  " height="90">'.$reg->fcardiaca.'</td>
+<td width="100"   bgcolor="#DFE4E6  " height="90">'.$reg->hidratacion.'</td>
+<td width="60"   bgcolor="#DFE4E6  "  height="90">'.$reg->peso.'</td>
+<td width="80"   bgcolor="#DFE4E6  " height="90">'.$reg->pulso.'</td>
+<td width="100"   bgcolor="#DFE4E6  " height="90">'.$reg->temperatura.'</td>
+<td width="60"   bgcolor="#DFE4E6  " height="90">'.$reg->actitud.'</td>
+<td width="100"   bgcolor="#DFE4E6  " height="90">'.$reg->ccorporal.'</td>';
+$html.='
+</table>
+</center>
 ';
 }
 
@@ -80,3 +118,4 @@ $pdf->Output();
 
 
 ?>
+

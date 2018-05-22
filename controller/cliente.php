@@ -58,14 +58,14 @@ switch ($_GET["op"]){
                 <i class="fa  fa-newspaper-o"></i></a>':
                  // _________________________________________ELSE______________________________________________
                 '<button class="btn btn-warning btn-xs" onclick="permiso()">
- 				<i class="fa fa-pencil"></i></button>'.
+ 				<i class="fa fa-pencil"></i></button> ' .
 
                 ' <button class="btn btn-danger btn-xs" onclick="permiso()">
-                <i class="fa fa-trash"></i></button>'.
+                <i class="fa fa-trash"></i></button> ' .
 
                 // direccionar a registro de mascota para ese cliente parte del ASISTENTE
 
-                '<a class="btn btn-info btn-xs" role="button" href="../view/mascota.php?client='.$reg->idcliente.'">
+                ' <a class="btn btn-info btn-xs" role="button" href="../view/mascota.php?client='.$reg->idcliente.'">
                 <i class="fa fa-paw"></i></a>'.
 
                 //reporte de clientes parte del ASISTENTE

@@ -18,6 +18,8 @@ $idmascota2=$_GET["mascot"];
             <div class="box-tools pull-right">
             </div>
           </div>
+
+        
   
           <!-- /.box-header -->
           <!-- centro -->

@@ -40,10 +40,16 @@ Class Mascota
 		return ejecutarConsultaSimpleFila($sql);
 	}
 
-	//Implementar un método para listar los registros
+	//Implementar un método para listar los registros por cliente
 	public function listar($idcliente)
 	{
 		$sql="SELECT idcliente,idmascota,mascota.nombre as Mascota,sexo,raza,procedencia,edad,categoria,descripcion,imagen FROM cliente inner join mascota ON mascota.cliente_idcliente = cliente.idcliente WHERE cliente.idcliente='$idcliente'";
+		return ejecutarConsulta($sql);		
+	}
+//Implementar un método para listar los registros en general
+	public function listargeneral()
+	{
+		$sql="SELECT * FROM mascota inner join cliente ON mascota.cliente_idcliente = cliente.idcliente";
 		return ejecutarConsulta($sql);		
 	}
 

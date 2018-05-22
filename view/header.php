@@ -126,6 +126,7 @@ echo'<li><a href="usuario.php"><i class="fa fa-users"></i>Usuarios</a></li>';
 </a>
 <ul class="treeview-menu">
 <li><a href="cliente.php"><i class="fa fa-users"></i>Clientes</a></li>
+<li><a href="reportes.php"><i class="fa fa-align-right"></i>Reportes</a></li>
 </ul>
 </li>
 </ul>

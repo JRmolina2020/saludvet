@@ -66,6 +66,8 @@ $('#formulariocliente') .bootstrapValidator({
             validating: 'fa fa-sync-alt'
 },
 
+
+
 	fields: {
 		// validaciones
 		cedula: {
@@ -99,12 +101,16 @@ $('#formulariocliente') .bootstrapValidator({
 				notEmpty: {
 					message: 'El nombre  es obligatorio y no puede estar vacio.'
 				},
+				
+                    regexp: {
+                        regexp: /^[a-zA-Z\s]+$/,
+                        message: 'Ingrese un nombre correcto,no se aceptan valores numericos'
+                    },
 				stringLength: {
 					min: 3,
 					max: 20,
 					message: 'Minimo 3 caracteres y Maximo 20 '
 				},
-				
 			}
 		},
 		apellido: {
@@ -113,6 +119,10 @@ $('#formulariocliente') .bootstrapValidator({
 				notEmpty: {
 					message: 'El Apellido  es obligatorio y no puede estar vacio.'
 				},
+				 regexp: {
+                        regexp: /^[a-zA-Z\s]+$/,
+                        message: 'Ingrese un apellido correcto,no se aceptan valores numericos'
+                    },
 				stringLength: {
 					min: 3,
 					max: 20,

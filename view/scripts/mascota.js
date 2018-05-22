@@ -89,6 +89,10 @@ $('#formulariomascota') .bootstrapValidator({
 				notEmpty: {
 					message: 'El Nombre de la mascota  es obligatorio y no puede estar vacio.'
 				},
+				 regexp: {
+                        regexp: /^[a-zA-Z\s]+$/,
+                        message: 'Ingrese un nombre correcto,no se aceptan valores numericos'
+                    },
 				stringLength: {
 					min: 3,
 					max: 20,
